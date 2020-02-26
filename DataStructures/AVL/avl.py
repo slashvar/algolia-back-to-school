@@ -51,16 +51,16 @@ def right_rotation(tree):
     return new_root
 
 def right_left_rotation(tree):
-    tree.right = _lr(tree.right)
-    new_root = _rr(tree)
+    tree.right = _rr(tree.right)
+    new_root = _lr(tree)
     new_root.left.bal = (new_root.bal * (new_root.bal - 1)) // 2
     new_root.right.bal = - (new_root.bal * (new_root.bal + 1)) // 2
     new_root.bal = 0
     return new_root
 
 def left_right_rotation(tree):
-    tree.left = _rr(tree.left)
-    new_root = _lr(tree)
+    tree.left = _lr(tree.left)
+    new_root = _rr(tree)
     new_root.left.bal = (new_root.bal * (new_root.bal - 1)) // 2
     new_root.right.bal = - (new_root.bal * (new_root.bal + 1)) // 2
     new_root.bal = 0
