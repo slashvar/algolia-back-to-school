@@ -15,7 +15,8 @@ struct list
         T     value;
     };
 
-    size_t size() {
+    size_t size()
+    {
         size_t s = 0;
         for (auto cur = head.next; cur != nullptr; cur = cur->next, ++s) {
             continue;
@@ -23,20 +24,66 @@ struct list
         return s;
     }
 
-    void push_front(cell* elm) {
+    void push_front(cell* elm)
+    {
         elm->next = head.next;
         head.next = elm;
-    }
-
-    cell* front() {
-        return head.next;
-    }
-
-    void pop() {
-        if (head.next != nullptr) {
-            head.next = head.next->next;
+        if (tail == &head) {
+            tail = elm;
         }
     }
 
-    cell head;
+    cell* front()
+    {
+        return head.next;
+    }
+
+    cell* pop()
+    {
+        cell* res = head.next;
+        if (head.next != nullptr) {
+            head.next = head.next->next;
+        }
+        if (head.next == nullptr) {
+            tail = &head;
+        }
+        return res;
+    }
+
+    struct iterator
+    {
+
+        iterator& operator++()
+        {
+            if (cur != nullptr) {
+                cur = cur->next;
+            }
+            return *this;
+        }
+
+        T& operator*()
+        {
+            return cur->next->value;
+        }
+
+        const T& operator*() const
+        {
+            return cur->next->value;
+        }
+
+        cell* cur;
+    };
+
+    iterator begin()
+    {
+        return { &head };
+    }
+
+    iterator end()
+    {
+        return { tail };
+    }
+
+    cell  head;
+    cell* tail = &head;
 };
