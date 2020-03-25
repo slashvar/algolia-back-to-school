@@ -1,0 +1,20 @@
+{
+    "order": 9,
+    "directed": false,
+    "edges":[
+        {"src":0, "dst":1, "cost":4},
+        {"src":0, "dst": 7, "cost": 8},
+        {"src":1, "dst": 2, "cost": 8},
+        {"src":1, "dst": 7, "cost": 11},
+        {"src":2, "dst": 3, "cost": 7},
+        {"src":2, "dst": 5, "cost": 4},
+        {"src":2, "dst": 8, "cost": 2},
+        {"src":3, "dst": 4, "cost": 9},
+        {"src":3, "dst": 5, "cost": 14},
+        {"src":4, "dst": 5, "cost": 10},
+        {"src":5, "dst": 6, "cost": 2},
+        {"src":6, "dst": 7, "cost": 1},
+        {"src":6, "dst": 8, "cost": 6},
+        {"src":7, "dst": 8, "cost": 7}
+    ]
+}
